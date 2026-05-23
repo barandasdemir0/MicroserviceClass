@@ -46,4 +46,11 @@ app.MapPost("/categories/create", async (CreateCategoryDto request, ApplicationD
 
 });
 
+using(var scoped = app.Services.CreateScope())
+{
+    var srv = scoped.ServiceProvider;
+    var context = srv.GetRequiredService<ApplicationDbContext>();
+    context.Database.Migrate();
+}//bu kod ile program ayağa kaldığında herhangi bir migrate yaplmamıssa direkt migrate alır
+
 app.Run();
