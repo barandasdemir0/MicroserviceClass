@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Todos.Categories.WebAPI/Todos.Categories.WebAPI.csproj" />
+  <Project Path="Todos.Ocelot.Gateway/Todos.Ocelot.Gateway.csproj" Id="f9d1dbff-a335-43fa-9253-4f42b6f78175" />
   <Project Path="Todos.WebApi/Todos.WebApi.csproj" />
 </Solution>
