@@ -1,0 +1,11 @@
+Postgre Docker Install and Run Code
+------------------------------------
+docker run --name postgres -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=usersdb -d -p 5433:5432 postgres
+
+PostgreSQL Connection String:
+------------------------------------
+Development:
+Host=localhost;Port=5433;Database=shoppingcartsdb;Username=postgres;Password=1;
+
+Production:
+Host=host.docker.internal;Port=5433;Database=usersdb;Username=postgres;Password=1;
