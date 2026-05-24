@@ -45,7 +45,7 @@ app.MapGet("/getall", async (MongoDbContext context,IConfiguration configuration
         OrderDto orderDto = new()
         {
             Id = order.Id,
-            CreateAt = DateTime.Now,
+            CreateAt = order.CreateAt,
             ProductId = order.ProductId,
             Quantity = order.Quantity,
             Price = order.Price,

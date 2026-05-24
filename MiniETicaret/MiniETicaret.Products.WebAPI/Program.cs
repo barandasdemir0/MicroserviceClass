@@ -80,6 +80,20 @@ app.MapPost("/create", async (CreateProductDto requests, ApplicatonDbContext con
     return Results.Ok(Result<string>.Succeed("Ürün Başarıyla Eklenmiştir"));
 });
 
+app.MapPost("/changeProductStock", async (List<ChangeProductStockDto> request,ApplicatonDbContext context, CancellationToken cancellationToken) =>
+{
+    foreach (var item in request)
+    {
+        Product? product = await context.Products.FindAsync(item.ProductId,cancellationToken);
+        if (product is not null)
+        {
+            product.Stock -= item.Quantity;
+        }
+    }
+    await context.SaveChangesAsync(cancellationToken);
+    return Results.NoContent();
+});
+
 
 using (var scoped = app.Services.CreateScope())
 {
